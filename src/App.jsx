@@ -43,7 +43,7 @@ function App() {
       setError(null);
       const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.VITE_API_KEY}&query=${searchTerm}&language=pt-BR`);
       const data = await response.json();
-      setMovies(data.results);
+      setMovies(data.results || []);
       setLoading(false);
       setSearched(true);
     } catch (err) {
